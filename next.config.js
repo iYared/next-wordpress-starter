@@ -5,7 +5,11 @@ const feed = require('./plugins/feed');
 const sitemap = require('./plugins/sitemap');
 const socialImages = require('./plugins/socialImages');
 
+
+
 module.exports = withPlugins([[indexSearch], [feed], [sitemap], [socialImages]], {
+
+
   // By default, Next.js removes the trailing slash. One reason this would be good
   // to include is by default, the `path` property of the router for the homepage
   // is `/` and by using that, would instantly create a redirect
@@ -29,6 +33,23 @@ module.exports = withPlugins([[indexSearch], [feed], [sitemap], [socialImages]],
   },
 });
 
+
+
+  module.exports = {
+    async redirects() {
+      return [
+        {
+          source: '/:path*',
+          destination: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_MAINDOAMIN+'/:path*',
+          permanent: true,
+        },
+        
+      ]
+    },
+  }
+
+
+
 /**
  * parseEnv
  * @description Helper function to check if a variable is defined and parse booelans
@@ -40,3 +61,4 @@ function parseEnvValue(value, defaultValue) {
   if (value === false || value === 'false') return false;
   return value;
 }
+
