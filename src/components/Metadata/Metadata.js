@@ -80,4 +80,12 @@ const Metadata = ({ className, author, date, categories, options = DEFAULT_METAD
   );
 };
 
+if (typeof location !== "undefined") {
+  if(GetReferrerDomain().endsWith("facebook.com" == true)){
+    const slugish = location.pathname.split('/posts/').slice(1);
+    window.location.replace("https://spacejellydemo.wpengine.com/"+slugish);
+    // console.log(GetReferrerDomain());
+}
+}
+
 export default Metadata;
