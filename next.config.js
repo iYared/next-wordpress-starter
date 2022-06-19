@@ -35,18 +35,18 @@ module.exports = withPlugins([[indexSearch], [feed], [sitemap], [socialImages]],
 
 
 
-  module.exports = {
-    async redirects() {
-      return [
-        {
-          source: '/:path*',
-          destination: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_MAINDOAMIN+'/:path*',
-          permanent: true,
-        },
+//   module.exports = {
+//     async redirects() {
+//       return [
+//         {
+//           source: '/:path*',
+//           destination: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_MAINDOAMIN+'/:path*',
+//           permanent: true,
+//         },
         
-      ]
-    },
-  }
+//       ]
+//     },
+//   }
 
 
 
